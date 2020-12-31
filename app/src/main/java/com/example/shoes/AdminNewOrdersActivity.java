@@ -131,6 +131,7 @@ super.onStart();
 
     private void RemoverOrder(String uID)
     {
+
         ordersRef.child(uID).removeValue();
     }
 }

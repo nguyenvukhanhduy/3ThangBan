@@ -65,8 +65,8 @@ public class AdminUserProductsActivity extends AppCompatActivity
             public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
             {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_items_layout,parent ,false);
-
-                return new CartViewHolder(view);
+                CartViewHolder holder = new CartViewHolder(view);
+                return holder;
             }
         };
         productsList.setAdapter(adapter);

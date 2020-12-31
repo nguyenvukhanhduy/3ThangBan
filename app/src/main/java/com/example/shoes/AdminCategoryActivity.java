@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 public class AdminCategoryActivity extends AppCompatActivity {
     private ImageView shoes;
-    private Button LogoutBtn,CheckOrdersBtn;
+    private Button LogoutBtn,CheckOrdersBtn, maintainProductsBtn;
     
 
     @Override
@@ -22,6 +22,17 @@ public class AdminCategoryActivity extends AppCompatActivity {
         LogoutBtn=(Button)findViewById(R.id.admin_logout_btn);
         CheckOrdersBtn=(Button)findViewById(R.id.check_orders_btn);
         shoes=(ImageView)findViewById(R.id.shoes);
+
+        maintainProductsBtn = (Button) findViewById(R.id.admin_maintain_btn);
+        maintainProductsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(AdminCategoryActivity.this,HomeActivity.class);
+                intent.putExtra("Admin","Admin");
+                startActivity(intent);
+            }
+        });
 
         LogoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
