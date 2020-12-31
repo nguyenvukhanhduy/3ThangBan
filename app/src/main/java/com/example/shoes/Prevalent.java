@@ -1,4 +1,4 @@
-package com.example.shoes.Prevalent;
+package com.example.shoes;
 
 
 import com.example.shoes.Model.Users;

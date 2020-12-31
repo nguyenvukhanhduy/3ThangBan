@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.shoes.Model.Users;
-import com.example.shoes.Prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private String parentDbName = "Users";
     private CheckBox chkBoxRememberMe;
     private TextView AdminLink, NotAdminLink;
+    private TextView ForgetPasswordLink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         loadingBar = new ProgressDialog(this);
         AdminLink=(TextView) findViewById(R.id.admin_panel_link);
         NotAdminLink=(TextView)findViewById(R.id.not_admin_panel_link);
+        ForgetPasswordLink = (TextView) findViewById(R.id.forget_password_link);
         chkBoxRememberMe = (CheckBox)findViewById(R.id.remember_me_chkb);
         Paper.init(this);
 
@@ -51,6 +52,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 LoginUser();
+            }
+        });
+        ForgetPasswordLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
+                intent.putExtra("check", "login");
+                startActivity(intent);
             }
         });
 
